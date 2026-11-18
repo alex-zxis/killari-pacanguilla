@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Killari Pacanguilla | Restaurante Campestre, Piscinas y Eventos</title>
+  <meta name="description" content="Disfruta en Killari Pacanguilla: restaurante campestre, piscinas, juegos recreativos, llamas, pavos reales, locaciones para fotos y alquiler para eventos en la Panamericana Norte." />
+  <meta name="keywords" content="Killari Pacanguilla, restaurante campestre Pacanguilla, piscinas Chepén, eventos Pacasmayo, turismo La Libertad" />
+  
+  <!-- Tipografías Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Iconos RemixIcon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    .menu-card.hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">
+        <i class="ri-sun-foggy-line"></i> KILLARI <span>Pacanguilla</span>
+      </a>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#atracciones">Atracciones</a>
+        <a href="#restaurante">Restaurante</a>
+        <a href="#galeria">Fotos & Spots</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#reservar" class="btn-nav">Reservar</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i class="ri-menu-3-line"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- PORTADA (HERO) -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="badge"><i class="ri-map-pin-2-fill"></i> Ctra. Panamericana N° 717 • Pacanguilla</span>
+      <h1>Naturaleza, sabor y diversión en un solo lugar</h1>
+      <p>Escapa de la rutina en Killari. Disfruta de nuestra gastronomía campestre, piscinas, juegos recreativos, animales exóticos y los mejores escenarios para tus fotos y eventos.</p>
+      <div class="hero-buttons">
+        <a href="#reservar" class="btn btn-primary"><i class="ri-whatsapp-line"></i> Reservar ahora</a>
+        <a href="#restaurante" class="btn btn-outline">Ver Carta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATRACCIONES PRINCIPALES -->
+  <section class="section" id="atracciones">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Experiencia Killari</span>
+        <h2>Todo lo que tenemos para ti y tu familia</h2>
+        <p>Un espacio campestre diseñado para pasar el día entero entre aire puro, diversión y buena comida.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon"><i class="ri-water-flash-line"></i></div>
+          <h3>Piscinas y Recreación</h3>
+          <p>Refréscate en nuestras amplias piscinas para adultos y niños, rodeadas de áreas verdes y juegos recreativos para toda la familia.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="ri-restaurant-2-line"></i></div>
+          <h3>Restaurante Campestre</h3>
+          <p>Platos marinos, criollos norteños y parrillas preparados al momento con el mejor sabor de la región.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="ri-bear-smile-line"></i></div>
+          <h3>Granja y Naturaleza</h3>
+          <p>Conoce de cerca a nuestras llamas, pavos reales y la zona de peces. Una experiencia inolvidable para niños y visitantes.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="ri-camera-lens-line"></i></div>
+          <h3>Puente y Spots Fotográficos</h3>
+          <p>Recorre nuestro puente panorámico y jardines temáticos, el escenario favorito en Pacanguilla para sesiones de fotos y recuerdos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA DIGITAL INTERACTIVA -->
+  <section class="section bg-light" id="restaurante">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Nuestra Carta</span>
+        <h2>Sabor Marino, Criollo y Parrillas</h2>
+        <p>Platos preparados al momento con ingredientes frescos en Ctra. Panamericana N° 717, Pacanguilla.</p>
+      </div>
+
+      <!-- Pestañas de Categorías -->
+      <div class="menu-tabs" id="menuTabs">
+        <button type="button" class="tab-btn active" data-category="todos">Todos</button>
+        <button type="button" class="tab-btn" data-category="entradas">Entradas</button>
+        <button type="button" class="tab-btn" data-category="marinos">Marinos</button>
+        <button type="button" class="tab-btn" data-category="criollos">Criollos</button>
+        <button type="button" class="tab-btn" data-category="parrillas">Parrillas y Porciones</button>
+      </div>
+
+      <!-- Contenedor de Platos -->
+      <div class="menu-grid" id="menuGrid">
+        
+        <!-- ENTRADAS -->
+        <div class="menu-card" data-cat="entradas">
+          <div class="menu-card-header">
+            <span class="menu-tag">Entrada</span>
+            <span class="menu-price">S/ 16.00</span>
+          </div>
+          <h4>Leche de tigre</h4>
+          <p>Concentrado fresco de pescado y limón norteño con guarnición clásica.</p>
+        </div>
+
+        <div class="menu-card" data-cat="entradas">
+          <div class="menu-card-header">
+            <span class="menu-tag">Entrada</span>
+            <span class="menu-price">S/ 12.00</span>
+          </div>
+          <h4>Papa a la huancaína</h4>
+          <p>Papas sancochadas bañadas en crema huancaína tradicional con huevo y aceituna.</p>
+        </div>
+
+        <!-- MARINOS FRÍOS Y CALIENTES -->
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Frío</span>
+            <span class="menu-price">Pers. S/ 25.00 • Fuente S/ 35.00</span>
+          </div>
+          <h4>Ceviche de pescado</h4>
+          <p>Pesca fresca del día marinada al instante con camote, choclo y cancha.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Frío</span>
+            <span class="menu-price">Pers. S/ 30.00 • Fuente S/ 45.00</span>
+          </div>
+          <h4>Ceviche mixto</h4>
+          <p>Combinación de pescado fresco y mariscos seleccionados al estilo norteño.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Caliente</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Arroz con mariscos</h4>
+          <p>Arroz aderezado con variedad de mariscos frescos y salsa criolla.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Caliente</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Chaufa de mariscos</h4>
+          <p>Salteado al wok con mariscos frescos, cebolla china y toque oriental.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Caliente</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Chicharrón de pescado</h4>
+          <p>Trozos crocantes de pescado acompañados de yuca dorada y sarza criolla.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Marino Caliente</span>
+            <span class="menu-price">S/ 22.00</span>
+          </div>
+          <h4>Pescado frito</h4>
+          <p>Pescado entero dorado al punto con arroz, yuca y ensalada fresca.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Fuente Especial</span>
+            <span class="menu-price">Fuente S/ 45.00</span>
+          </div>
+          <h4>Sudados</h4>
+          <p>Jugoso sudado de pescado preparado a fuego lento con chicha de jora y tomate.</p>
+        </div>
+
+        <div class="menu-card" data-cat="marinos">
+          <div class="menu-card-header">
+            <span class="menu-tag marino">Fuente Especial</span>
+            <span class="menu-price">Fuente S/ 50.00</span>
+          </div>
+          <h4>Parihuelas</h4>
+          <p>Concentrado levantamuertos de pescado y mariscos surtidos para compartir.</p>
+        </div>
+
+        <!-- CRIOLLOS -->
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Especialidad</span>
+            <span class="menu-price">1/2 S/ 35.00 • Entero S/ 70.00</span>
+          </div>
+          <h4>Cuy crocante / guisado</h4>
+          <p>Tradicional plato norteño acompañado de papas, arroz y zarza criolla.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Pato guisado</h4>
+          <p>Clásico pato norteño aderezado con culantro y chicha de jora, con arroz y yuca.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Cabrito</h4>
+          <p>Tierno cabrito a la norteña servido con frejoles, arroz blanco y yuca.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 25.00</span>
+          </div>
+          <h4>Lomo saltado</h4>
+          <p>Trozos de res salteados al wok con cebolla, tomate, papas fritas y arroz.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 22.00</span>
+          </div>
+          <h4>Milanesa de pollo</h4>
+          <p>Pechuga empanizada dorada con papas fritas, arroz y ensalada.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 22.00</span>
+          </div>
+          <h4>Chicharrón de pollo</h4>
+          <p>Bocados jugosos y crocantes de pollo acompañados de papas y cremas.</p>
+        </div>
+
+        <div class="menu-card" data-cat="criollos">
+          <div class="menu-card-header">
+            <span class="menu-tag criollo">Criollo</span>
+            <span class="menu-price">S/ 20.00</span>
+          </div>
+          <h4>Chaufa de pollo</h4>
+          <p>Arroz chaufa tradicional salteado con trozos de pollo y tortilla de huevo.</p>
+        </div>
+
+        <!-- PARRILLAS Y PORCIONES -->
+        <div class="menu-card" data-cat="parrillas">
+          <div class="menu-card-header">
+            <span class="menu-tag parrilla">Parrilla</span>
+            <span class="menu-price">S/ 20.00</span>
+          </div>
+          <h4>Parrilla de Res</h4>
+          <p>Corte de res a la brasa servido con papas doradas y ensalada fresca.</p>
+        </div>
+
+        <div class="menu-card" data-cat="parrillas">
+          <div class="menu-card-header">
+            <span class="menu-tag parrilla">Parrilla</span>
+            <span class="menu-price">S/ 18.00</span>
+          </div>
+          <h4>Parrilla de Chancho</h4>
+          <p>Chuleta de cerdo jugosa a la parrilla con guarnición criolla.</p>
+        </div>
+
+        <div class="menu-card" data-cat="parrillas">
+          <div class="menu-card-header">
+            <span class="menu-tag parrilla">Parrilla</span>
+            <span class="menu-price">S/ 15.00</span>
+          </div>
+          <h4>Parrilla de Pollo</h4>
+          <p>Filete de pollo sazonado a la brasa con papas y ensalada.</p>
+        </div>
+
+        <div class="menu-card" data-cat="parrillas">
+          <div class="menu-card-header">
+            <span class="menu-tag">Guarniciones</span>
+            <span class="menu-price">Desde S/ 3.00</span>
+          </div>
+          <h4>Porciones adicionales</h4>
+          <p><strong>Arroz:</strong> S/ 3.00 &nbsp;|&nbsp; <strong>Yuca:</strong> S/ 4.00 &nbsp;|&nbsp; <strong>Camote:</strong> S/ 4.00</p>
+        </div>
+
+      </div>
+
+      <div class="menu-cta">
+        <a href="#reservar" class="btn btn-primary"><i class="ri-restaurant-line"></i> Reservar mesa o pedir por adelantado</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE SPOTS Y ATRACCIONES -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Rincón Visual</span>
+        <h2>Nuestros espacios y locaciones</h2>
+        <p>Ideal para tus fotos de fin de semana, quinceañeros, promociones o sesiones familiares.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/img/piscina.jpg" alt="Zona de piscinas y cascada Killari" loading="lazy">
+          <div class="gallery-caption">Zona de Piscina </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=800&q=80" alt="Puente panorámico Killari" loading="lazy">
+          <div class="gallery-caption">Áreas Verdes</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/img/animales.jpg" alt="Pavos reales y puente panorámico Killari" loading="lazy">
+          <div class="gallery-caption">Animales</div>
+        </div>
+      </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Eventos campestres Killari" loading="lazy">
+          <div class="gallery-caption">Explanada para Eventos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTOS Y CELEBRACIONES -->
+  <section class="section bg-dark" id="eventos">
+    <div class="container">
+      <div class="section-header light">
+        <span class="subtitle">Celebra con nosotros</span>
+        <h2>Alquiler de local para eventos sociales y corporativos</h2>
+        <p>Contamos con amplias áreas verdes, toldos, piscina y servicio de catering para hacer de tu fecha especial un éxito total.</p>
+      </div>
+
+      <div class="events-grid">
+        <div class="event-box">
+          <i class="ri-cake-2-line"></i>
+          <h4>Cumpleaños y Aniversarios</h4>
+          <p>Espacios privados o compartidos para celebrar en familia con piscina y juegos.</p>
+        </div>
+        <div class="event-box">
+          <i class="ri-heart-3-line"></i>
+          <h4>Matrimonios y Quinceañeros</h4>
+          <p>Locación campestre con puente y jardines iluminados para recepción y fotos.</p>
+        </div>
+        <div class="event-box">
+          <i class="ri-group-line"></i>
+          <h4>Paseos Escolares y Empresas</h4>
+          <p>Full Days de integración, promociones escolares y jornadas recreativas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVAS (CONEXIÓN DIRECTA WHATSAPP) + UBICACIÓN -->
+  <section class="section" id="reservar">
+    <div class="container booking-grid">
+      
+      <!-- Formulario Inteligente -->
+      <div class="booking-card">
+        <span class="subtitle">Atención Rápida</span>
+        <h2>Reserva tu visita o cotiza tu evento</h2>
+        <p>Completa tus datos y te atenderemos al instante por WhatsApp.</p>
+
+        <form id="whatsappForm" class="booking-form">
+          <div class="form-group">
+            <label for="nombre">Tu Nombre o Empresa</label>
+            <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required />
+          </div>
+
+          <div class="form-group">
+            <label for="servicio">¿Qué deseas reservar?</label>
+            <select id="servicio" required>
+              <option value="Mesa en Restaurante">Mesa en Restaurante</option>
+              <option value="Entrada a Piscinas / Full Day">Entrada a Piscinas / Full Day</option>
+              <option value="Alquiler para Evento (Cumpleaños/Boda)">Alquiler para Evento</option>
+              <option value="Sesión de Fotos en el Local">Sesión de Fotos en el Local</option>
+              <option value="Paseo Escolar / Corporativo">Paseo Escolar / Corporativo</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha tentativa</label>
+              <input type="date" id="fecha" required />
+            </div>
+            <div class="form-group">
+              <label for="personas">N° de personas</label>
+              <input type="number" id="personas" min="1" placeholder="Ej. 6" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notas">Detalle adicional (opcional)</label>
+            <input type="text" id="notas" placeholder="Ej. Mesa cerca a la piscina o cotización con almuerzo" />
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp full-width">
+            <i class="ri-whatsapp-fill"></i> Enviar consulta por WhatsApp
+          </button>
+        </form>
+      </div>
+
+      <!-- Mapa y Datos Reales -->
+      <div class="location-card" id="ubicacion">
+        <h3><i class="ri-map-pin-line"></i> ¿Cómo llegar a Killari?</h3>
+        <p>Nos encontramos en <strong>Ctra. Panamericana N° 717, Pacanguilla 13860</strong> (La Libertad), con fácil acceso desde Chepén y Pacasmayo.</p>
+        
+        <div class="info-items">
+          <div><i class="ri-phone-fill"></i> <strong>Reservas y Consultas:</strong> 960 977 347</div>
+          <div><i class="ri-time-fill"></i> <strong>Horario:</strong> Lunes a Domingo de 9:00 a.m. a 6:00 p.m.</div>
+          <div><i class="ri-car-fill"></i> <strong>Estacionamiento:</strong> Amplio y privado dentro del local.</div>
+        </div>
+
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps?q=Restaurante+Killari+Pacanguilla&output=embed" 
+            width="100%" 
+            height="260" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h4>KILLARI RESTAURANTE • EVENTOS Y RECEPCIONES</h4>
+        <p>Ctra. Panamericana N° 717, Pacanguilla 13860 • Tel: 960 977 347</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/search/top?q=Killari%20Eventos%20y%20Recepciones" target="_blank" rel="noopener" aria-label="Facebook Killari Eventos y Recepciones" title="Killari Eventos y Recepciones">
+          <i class="ri-facebook-circle-fill"></i>
+        </a>
+        <a href="https://wa.me/51960977347" target="_blank" rel="noopener" aria-label="WhatsApp Killari">
+          <i class="ri-whatsapp-fill"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Killari Pacanguilla. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP REAL -->
+  <a href="https://wa.me/51960977347?text=Hola%20Killari%20Pacanguilla,%20quisiera%20más%20información" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Contactar por WhatsApp">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+  <!-- JAVASCRIPT AL FINAL DEL BODY PARA QUE SIEMPRE FUNCIONE -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Menú móvil
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+        document.querySelectorAll(".nav-links a").forEach(link => {
+          link.addEventListener("click", () => navLinks.classList.remove("active"));
+        });
+      }
+
+      // 2. Filtro de la Carta Digital
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const menuCards = document.querySelectorAll(".menu-card");
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const category = btn.getAttribute("data-category");
+
+          menuCards.forEach(card => {
+            const cardCat = card.getAttribute("data-cat");
+            if (category === "todos" || cardCat === category) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+        });
+      });
+
+      // 3. Fecha mínima de hoy
+      const fechaInput = document.getElementById("fecha");
+      if (fechaInput) {
+        fechaInput.setAttribute("min", new Date().toISOString().split("T")[0]);
+      }
+
+      // 4. Envío directo a WhatsApp
+      const whatsappForm = document.getElementById("whatsappForm");
+      if (whatsappForm) {
+        whatsappForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const nombre = document.getElementById("nombre").value.trim();
+          const servicio = document.getElementById("servicio").value;
+          const fecha = document.getElementById("fecha").value;
+          const personas = document.getElementById("personas").value;
+          const notas = document.getElementById("notas").value.trim();
+
+          let mensaje = `Hola *Killari Pacanguilla*, mi nombre es *${nombre}*. Quisiera consultar disponibilidad para:\n\n`;
+          mensaje += `• *Motivo:* ${servicio}\n`;
+          mensaje += `• *Fecha:* ${fecha}\n`;
+          mensaje += `• *Cantidad:* ${personas} persona(s)\n`;
+          if (notas) mensaje += `• *Nota:* ${notas}\n`;
+          mensaje += `\nQuedo atento a su confirmación. ¡Gracias!`;
+
+          window.open(`https://wa.me/51960977347?text=${encodeURIComponent(mensaje)}`, "_blank");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
