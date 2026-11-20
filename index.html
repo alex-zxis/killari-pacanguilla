@@ -3,42 +3,887 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Killari Pacanguilla | Restaurante Campestre, Piscinas y Eventos</title>
-  <meta name="description" content="Disfruta en Killari Pacanguilla: restaurante campestre, piscinas, juegos recreativos, llamas, pavos reales, locaciones para fotos y alquiler para eventos en la Panamericana Norte." />
-  <meta name="keywords" content="Killari Pacanguilla, restaurante campestre Pacanguilla, piscinas Chepén, eventos Pacasmayo, turismo La Libertad" />
-  
+  <title>Killari Restaurante | Campestre, Piscinas y Eventos en Pacanguilla</title>
+  <meta name="description" content="Disfruta en Killari Restaurante Pacanguilla: gastronomía campestre, piscinas, áreas verdes, llamas, pavos reales, locaciones para fotos y alquiler para eventos en la Panamericana Norte." />
+  <meta name="keywords" content="Killari Restaurante, Killari Pacanguilla, restaurante campestre Pacanguilla, piscinas Chepén, eventos Pacasmayo, turismo La Libertad" />
+
+  <!-- Favicon con el logo oficial -->
+  <link rel="icon" type="image/png" href="assets/img/logo-killari.png" />
+
   <!-- Tipografías Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Iconos RemixIcon -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="css/styles.css" />
 
   <style>
+    :root {
+      --verde-bosque: #1f331d;
+      --verde-oscuro: #142213;
+      --azul-noche: #2c3954;
+      --dorado: #d4b46a;
+      --crema: #f7f4ee;
+      --blanco: #ffffff;
+      --texto: #232b22;
+      --texto-suave: #5a6558;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--texto);
+      background-color: var(--blanco);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ================= NAVBAR EDITORIAL CON LOGO OFICIAL ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(247, 244, 238, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31, 51, 29, 0.12);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 86px;
+    }
+
+    .logo-brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--dorado);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: var(--azul-noche);
+    }
+
+    .logo-sub {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--dorado);
+    }
+
+    .nav-sep {
+      color: var(--dorado);
+      font-weight: 300;
+      user-select: none;
+    }
+
+    .btn-nav {
+      background: var(--verde-bosque);
+      color: var(--blanco) !important;
+      padding: 8px 18px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+
+    .btn-nav:hover {
+      background: var(--dorado) !important;
+      color: var(--verde-oscuro) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--verde-bosque);
+      cursor: pointer;
+    }
+
+    /* ================= HERO / PORTADA ================= */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      margin-top: 86px;
+      display: flex;
+      align-items: center;
+      background: url('assets/img/galeria/piscina-1.jpg') center/cover no-repeat;
+      background-color: var(--verde-oscuro);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(16, 28, 15, 0.86) 0%, rgba(16, 28, 15, 0.45) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      color: var(--blanco);
+      padding: 60px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--dorado);
+      border: 1px solid rgba(212, 180, 106, 0.5);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #e6e4de;
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--dorado);
+      color: var(--verde-oscuro);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #e0c37c;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: var(--blanco);
+      color: var(--blanco);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--blanco);
+      color: var(--verde-bosque);
+    }
+
+    /* ================= SECCIONES GENERALES ================= */
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .subtitle {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      color: var(--dorado);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .section-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--verde-bosque);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--texto-suave);
+    }
+
+    /* ================= ATRACCIONES ================= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--crema);
+      padding: 34px 26px;
+      border-bottom: 3px solid var(--verde-bosque);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(31, 51, 29, 0.08);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      color: var(--dorado);
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--texto-suave);
+    }
+
+    /* ================= RECOMENDACIÓN DEL CHEF ================= */
+    .chef-editorial {
+      background: var(--verde-bosque);
+      color: var(--blanco);
+      padding: 90px 0;
+    }
+
+    .chef-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .chef-intro h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin: 12px 0 20px;
+      color: var(--blanco);
+    }
+
+    .chef-intro p {
+      color: #c8d1c5;
+      margin-bottom: 32px;
+      font-size: 0.98rem;
+    }
+
+    .btn-editorial {
+      display: inline-block;
+      padding: 13px 30px;
+      border: 1px solid var(--blanco);
+      color: var(--blanco);
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-editorial:hover {
+      background: var(--dorado);
+      border-color: var(--dorado);
+      color: var(--verde-oscuro);
+    }
+
+    .chef-dishes {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .dish-item {
+      border-bottom: 1px solid rgba(212, 180, 106, 0.25);
+      padding-bottom: 16px;
+    }
+
+    .dish-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .dish-header h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 500;
+    }
+
+    .dish-header span {
+      font-family: 'Oswald', sans-serif;
+      color: var(--blanco);
+      font-size: 1rem;
+    }
+
+    .dish-item p {
+      color: #d8dfd6;
+      font-size: 0.92rem;
+    }
+
+    /* ================= CARTA DIGITAL COMPLETA ================= */
+    .bg-light {
+      background: var(--crema);
+    }
+
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border: 1.5px solid var(--verde-bosque);
+      background: transparent;
+      color: var(--verde-bosque);
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--verde-bosque);
+      color: var(--blanco);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: var(--blanco);
+      padding: 22px;
+      border-left: 3px solid var(--dorado);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+
     .menu-card.hidden {
       display: none !important;
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+    }
+
+    .menu-tag {
+      background: var(--crema);
+      color: var(--verde-bosque);
+      padding: 3px 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .menu-price {
+      font-weight: 700;
+      color: var(--verde-bosque);
+      text-align: right;
+    }
+
+    .menu-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: var(--texto);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .menu-card p {
+      font-size: 0.9rem;
+      color: var(--texto-suave);
+    }
+
+    .menu-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ================= GALERÍA INTERACTIVA POR ZONAS ================= */
+    .filtros-zona {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .btn-zona {
+      padding: 12px 26px;
+      border: 1.5px solid var(--verde-bosque);
+      background: var(--blanco);
+      color: var(--verde-bosque);
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-zona:hover, .btn-zona.activo {
+      background: var(--verde-bosque);
+      color: var(--dorado);
+      box-shadow: 0 8px 20px rgba(31, 51, 29, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .tarjeta-foto {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #e9ece8;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      animation: fadeScale 0.4s ease;
+    }
+
+    .tarjeta-foto.oculto {
+      display: none;
+    }
+
+    .tarjeta-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tarjeta-foto:hover img {
+      transform: scale(1.08);
+    }
+
+    .info-foto {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(20, 34, 19, 0.85), transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      color: var(--blanco);
+    }
+
+    .info-foto span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 3px;
+    }
+
+    .info-foto p {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    @keyframes fadeScale {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Modal Visor */
+    .visor-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 20, 11, 0.94);
+      z-index: 9999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .visor-modal.abierto {
+      display: flex;
+    }
+
+    .visor-modal img {
+      max-width: 92%;
+      max-height: 80vh;
+      border: 2px solid var(--dorado);
+    }
+
+    .visor-modal p {
+      color: var(--blanco);
+      margin-top: 14px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .cerrar-visor {
+      position: absolute;
+      top: 20px;
+      right: 32px;
+      color: var(--dorado);
+      font-size: 42px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ================= EVENTOS ================= */
+    .bg-dark {
+      background: var(--verde-oscuro);
+      color: var(--blanco);
+    }
+
+    .section-header.light h2 {
+      color: var(--blanco);
+    }
+
+    .section-header.light p {
+      color: #c5cec3;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .event-box {
+      border: 1px solid rgba(212, 180, 106, 0.3);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .event-box i {
+      font-size: 2.3rem;
+      color: var(--dorado);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .event-box h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .event-box p {
+      color: #cfd6cd;
+      font-size: 0.92rem;
+    }
+
+    /* ================= RESERVAS Y UBICACIÓN ================= */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .booking-card, .location-card {
+      background: var(--crema);
+      padding: 36px;
+    }
+
+    .booking-card h2, .location-card h3 {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      color: var(--verde-bosque);
+      margin-bottom: 12px;
+    }
+
+    .booking-form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--verde-bosque);
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd2c9;
+      background: var(--blanco);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: var(--blanco);
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .info-items {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .info-items i {
+      color: var(--verde-bosque);
+      margin-right: 6px;
+    }
+
+    /* ================= FOOTER Y FLOTANTES ================= */
+    .footer {
+      background: var(--verde-oscuro);
+      color: #c8d1c5;
+      padding: 45px 0 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer h4 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--dorado);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-links a {
+      color: var(--blanco);
+      font-size: 1.6rem;
+      transition: color 0.25s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--dorado);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 18px;
+      font-size: 0.85rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      color: var(--blanco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 900px) {
+      .chef-grid, .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-sep {
+        display: none;
+      }
+      .nav-links {
+        position: absolute;
+        top: 86px;
+        left: 0;
+        width: 100%;
+        background: var(--crema);
+        flex-direction: column;
+        padding: 24px;
+        border-bottom: 2px solid var(--verde-bosque);
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVEGACIÓN -->
+  <!-- NAVEGACIÓN CON LOGO OFICIAL -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#inicio" class="logo">
-        <i class="ri-sun-foggy-line"></i> KILLARI <span>Pacanguilla</span>
+      <a href="#inicio" class="logo-brand">
+        <img src="assets/img/logo-killari.png" alt="Logo Killari Restaurante" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">Killari</span>
+          <span class="logo-sub">Restaurante</span>
+        </div>
       </a>
-      
+
       <nav class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
-        <a href="#atracciones">Atracciones</a>
-        <a href="#restaurante">Restaurante</a>
-        <a href="#galeria">Fotos & Spots</a>
+        <span class="nav-sep">/</span>
+        <a href="#atracciones">Sobre Nosotros</a>
+        <span class="nav-sep">/</span>
+        <a href="#especialidades">Menú</a>
+        <span class="nav-sep">/</span>
+        <a href="#galeria">Galería</a>
+        <span class="nav-sep">/</span>
         <a href="#eventos">Eventos</a>
-        <a href="#ubicacion">Ubicación</a>
+        <span class="nav-sep">/</span>
+        <a href="#ubicacion">Contacto</a>
         <a href="#reservar" class="btn-nav">Reservar</a>
       </nav>
 
@@ -54,10 +899,10 @@
     <div class="container hero-content">
       <span class="badge"><i class="ri-map-pin-2-fill"></i> Ctra. Panamericana N° 717 • Pacanguilla</span>
       <h1>Naturaleza, sabor y diversión en un solo lugar</h1>
-      <p>Escapa de la rutina en Killari. Disfruta de nuestra gastronomía campestre, piscinas, juegos recreativos, animales exóticos y los mejores escenarios para tus fotos y eventos.</p>
+      <p>Escapa de la rutina en Killari Restaurante. Disfruta de nuestra gastronomía campestre, piscinas, áreas verdes, animales exóticos y los mejores escenarios para tus fotos y eventos.</p>
       <div class="hero-buttons">
         <a href="#reservar" class="btn btn-primary"><i class="ri-whatsapp-line"></i> Reservar ahora</a>
-        <a href="#restaurante" class="btn btn-outline">Ver Carta</a>
+        <a href="#galeria" class="btn btn-outline">Explorar Espacios</a>
       </div>
     </div>
   </section>
@@ -81,7 +926,7 @@
         <div class="card">
           <div class="card-icon"><i class="ri-restaurant-2-line"></i></div>
           <h3>Restaurante Campestre</h3>
-          <p>Platos marinos, criollos norteños y parrillas preparados al momento con el mejor sabor de la región.</p>
+          <p>Platos marinos, criollos norteños y especialidades de paiche preparados al momento con el mejor sabor de la región.</p>
         </div>
 
         <div class="card">
@@ -99,256 +944,183 @@
     </div>
   </section>
 
-  <!-- CARTA DIGITAL INTERACTIVA -->
-  <section class="section bg-light" id="restaurante">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">Nuestra Carta</span>
-        <h2>Sabor Marino, Criollo y Parrillas</h2>
-        <p>Platos preparados al momento con ingredientes frescos en Ctra. Panamericana N° 717, Pacanguilla.</p>
+  <!-- RECOMENDACIÓN DEL CHEF (PLATOS BANDERA ACTUALIZADOS) -->
+  <section class="chef-editorial" id="especialidades">
+    <div class="container chef-grid">
+      <div class="chef-intro">
+        <span class="subtitle">Una experiencia campestre para tu semana</span>
+        <h2>Recomendación<br>del Chef</h2>
+        <p>En nuestra cocina seleccionamos platos que destacan lo mejor de la gastronomía norteña, marina y criolla, preparados al instante con ingredientes frescos de nuestra tierra.</p>
+        <a href="https://drive.google.com/file/d/1J2o2zGYFMDExZJJmNrCIfsWI4ZzG3n4B/view?usp=sharing" target="_blank" rel="noopener" class="btn-editorial">Revisa nuestra carta</a>
       </div>
 
-      <!-- Pestañas de Categorías -->
-      <div class="menu-tabs" id="menuTabs">
-        <button type="button" class="tab-btn active" data-category="todos">Todos</button>
-        <button type="button" class="tab-btn" data-category="entradas">Entradas</button>
-        <button type="button" class="tab-btn" data-category="marinos">Marinos</button>
-        <button type="button" class="tab-btn" data-category="criollos">Criollos</button>
-        <button type="button" class="tab-btn" data-category="parrillas">Parrillas y Porciones</button>
-      </div>
-
-      <!-- Contenedor de Platos -->
-      <div class="menu-grid" id="menuGrid">
-        
-        <!-- ENTRADAS -->
-        <div class="menu-card" data-cat="entradas">
-          <div class="menu-card-header">
-            <span class="menu-tag">Entrada</span>
-            <span class="menu-price">S/ 16.00</span>
+      <div class="chef-dishes">
+        <div class="dish-item">
+          <div class="dish-header">
+            <h4>Ceviche de Paiche</h4>
+            <span>Pers. S/ 65.00 • Fuente S/ 80.00</span>
           </div>
-          <h4>Leche de tigre</h4>
-          <p>Concentrado fresco de pescado y limón norteño con guarnición clásica.</p>
+          <p>Cortes selectos de paiche amazónico marinados al instante en limón norteño con camote, choclo y cancha crocante.</p>
         </div>
 
-        <div class="menu-card" data-cat="entradas">
-          <div class="menu-card-header">
-            <span class="menu-tag">Entrada</span>
-            <span class="menu-price">S/ 12.00</span>
+        <div class="dish-item">
+          <div class="dish-header">
+            <h4>Arroz con Pato</h4>
+            <span>S/ 33.00</span>
           </div>
-          <h4>Papa a la huancaína</h4>
-          <p>Papas sancochadas bañadas en crema huancaína tradicional con huevo y aceituna.</p>
+          <p>Clásico arroz norteño graneado al culantro y chicha de jora con presa tierna de pato y zarza criolla.</p>
         </div>
 
-        <!-- MARINOS FRÍOS Y CALIENTES -->
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Frío</span>
-            <span class="menu-price">Pers. S/ 25.00 • Fuente S/ 35.00</span>
+        <div class="dish-item">
+          <div class="dish-header">
+            <h4>Chancadito de Cangrejo</h4>
+            <span>Pers. S/ 40.00 • Fuente S/ 75.00</span>
           </div>
-          <h4>Ceviche de pescado</h4>
-          <p>Pesca fresca del día marinada al instante con camote, choclo y cancha.</p>
+          <p>Pulpa fresca de cangrejo sazonada al estilo norteño, ideal para disfrutar en familia junto a la piscina.</p>
         </div>
 
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Frío</span>
-            <span class="menu-price">Pers. S/ 30.00 • Fuente S/ 45.00</span>
+        <div class="dish-item">
+          <div class="dish-header">
+            <h4>Cabrito / Pato Guisado</h4>
+            <span>S/ 30.00</span>
           </div>
-          <h4>Ceviche mixto</h4>
-          <p>Combinación de pescado fresco y mariscos seleccionados al estilo norteño.</p>
+          <p>Receta tradicional norteña cocinada a fuego lento, servida con frejoles aderezados, arroz blanco y yuca.</p>
         </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Caliente</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Arroz con mariscos</h4>
-          <p>Arroz aderezado con variedad de mariscos frescos y salsa criolla.</p>
-        </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Caliente</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Chaufa de mariscos</h4>
-          <p>Salteado al wok con mariscos frescos, cebolla china y toque oriental.</p>
-        </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Caliente</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Chicharrón de pescado</h4>
-          <p>Trozos crocantes de pescado acompañados de yuca dorada y sarza criolla.</p>
-        </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Marino Caliente</span>
-            <span class="menu-price">S/ 22.00</span>
-          </div>
-          <h4>Pescado frito</h4>
-          <p>Pescado entero dorado al punto con arroz, yuca y ensalada fresca.</p>
-        </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Fuente Especial</span>
-            <span class="menu-price">Fuente S/ 45.00</span>
-          </div>
-          <h4>Sudados</h4>
-          <p>Jugoso sudado de pescado preparado a fuego lento con chicha de jora y tomate.</p>
-        </div>
-
-        <div class="menu-card" data-cat="marinos">
-          <div class="menu-card-header">
-            <span class="menu-tag marino">Fuente Especial</span>
-            <span class="menu-price">Fuente S/ 50.00</span>
-          </div>
-          <h4>Parihuelas</h4>
-          <p>Concentrado levantamuertos de pescado y mariscos surtidos para compartir.</p>
-        </div>
-
-        <!-- CRIOLLOS -->
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Especialidad</span>
-            <span class="menu-price">1/2 S/ 35.00 • Entero S/ 70.00</span>
-          </div>
-          <h4>Cuy crocante / guisado</h4>
-          <p>Tradicional plato norteño acompañado de papas, arroz y zarza criolla.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Pato guisado</h4>
-          <p>Clásico pato norteño aderezado con culantro y chicha de jora, con arroz y yuca.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Cabrito</h4>
-          <p>Tierno cabrito a la norteña servido con frejoles, arroz blanco y yuca.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 25.00</span>
-          </div>
-          <h4>Lomo saltado</h4>
-          <p>Trozos de res salteados al wok con cebolla, tomate, papas fritas y arroz.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 22.00</span>
-          </div>
-          <h4>Milanesa de pollo</h4>
-          <p>Pechuga empanizada dorada con papas fritas, arroz y ensalada.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 22.00</span>
-          </div>
-          <h4>Chicharrón de pollo</h4>
-          <p>Bocados jugosos y crocantes de pollo acompañados de papas y cremas.</p>
-        </div>
-
-        <div class="menu-card" data-cat="criollos">
-          <div class="menu-card-header">
-            <span class="menu-tag criollo">Criollo</span>
-            <span class="menu-price">S/ 20.00</span>
-          </div>
-          <h4>Chaufa de pollo</h4>
-          <p>Arroz chaufa tradicional salteado con trozos de pollo y tortilla de huevo.</p>
-        </div>
-
-        <!-- PARRILLAS Y PORCIONES -->
-        <div class="menu-card" data-cat="parrillas">
-          <div class="menu-card-header">
-            <span class="menu-tag parrilla">Parrilla</span>
-            <span class="menu-price">S/ 20.00</span>
-          </div>
-          <h4>Parrilla de Res</h4>
-          <p>Corte de res a la brasa servido con papas doradas y ensalada fresca.</p>
-        </div>
-
-        <div class="menu-card" data-cat="parrillas">
-          <div class="menu-card-header">
-            <span class="menu-tag parrilla">Parrilla</span>
-            <span class="menu-price">S/ 18.00</span>
-          </div>
-          <h4>Parrilla de Chancho</h4>
-          <p>Chuleta de cerdo jugosa a la parrilla con guarnición criolla.</p>
-        </div>
-
-        <div class="menu-card" data-cat="parrillas">
-          <div class="menu-card-header">
-            <span class="menu-tag parrilla">Parrilla</span>
-            <span class="menu-price">S/ 15.00</span>
-          </div>
-          <h4>Parrilla de Pollo</h4>
-          <p>Filete de pollo sazonado a la brasa con papas y ensalada.</p>
-        </div>
-
-        <div class="menu-card" data-cat="parrillas">
-          <div class="menu-card-header">
-            <span class="menu-tag">Guarniciones</span>
-            <span class="menu-price">Desde S/ 3.00</span>
-          </div>
-          <h4>Porciones adicionales</h4>
-          <p><strong>Arroz:</strong> S/ 3.00 &nbsp;|&nbsp; <strong>Yuca:</strong> S/ 4.00 &nbsp;|&nbsp; <strong>Camote:</strong> S/ 4.00</p>
-        </div>
-
-      </div>
-
-      <div class="menu-cta">
-        <a href="#reservar" class="btn btn-primary"><i class="ri-restaurant-line"></i> Reservar mesa o pedir por adelantado</a>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA DE SPOTS Y ATRACCIONES -->
+  <!-- GALERÍA INTERACTIVA POR ZONAS (RUTA: assets/img/galeria/) -->
   <section class="section" id="galeria">
     <div class="container">
       <div class="section-header">
         <span class="subtitle">Rincón Visual</span>
-        <h2>Nuestros espacios y locaciones</h2>
-        <p>Ideal para tus fotos de fin de semana, quinceañeros, promociones o sesiones familiares.</p>
+        <h2>Explora Nuestros Espacios por Zona</h2>
+        <p>Selecciona un área para recorrer sus diferentes ángulos o haz clic en cualquier foto para ampliarla.</p>
       </div>
 
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/img/piscina.jpg" alt="Zona de piscinas y cascada Killari" loading="lazy">
-          <div class="gallery-caption">Zona de Piscina </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=800&q=80" alt="Puente panorámico Killari" loading="lazy">
-          <div class="gallery-caption">Áreas Verdes</div>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/img/animales.jpg" alt="Pavos reales y puente panorámico Killari" loading="lazy">
-          <div class="gallery-caption">Animales</div>
-        </div>
+      <div class="filtros-zona" role="tablist">
+        <button type="button" class="btn-zona activo" data-categoria="piscina">Zona de Piscina</button>
+        <button type="button" class="btn-zona" data-categoria="verdes">Áreas Verdes</button>
+        <button type="button" class="btn-zona" data-categoria="animales">Animales</button>
+        <button type="button" class="btn-zona" data-categoria="auditorio">Explanadas y Auditorio</button>
+        <button type="button" class="btn-zona" data-categoria="fotos">Spots para Fotos</button>
       </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Eventos campestres Killari" loading="lazy">
-          <div class="gallery-caption">Explanada para Eventos</div>
+
+      <div class="grid-fotos" id="gridFotos">
+        <!-- ZONA DE PISCINA -->
+        <div class="tarjeta-foto" data-categoria="piscina">
+          <img src="assets/img/galeria/piscina-1.jpg" alt="Zona de Piscina - Ángulo 1" loading="lazy">
+          <div class="info-foto"><span>Zona de Piscina</span><p></p></div>
         </div>
+        <div class="tarjeta-foto" data-categoria="piscina">
+          <img src="assets/img/galeria/piscina-2.jpg" alt="Zona de Piscina - Ángulo 2" loading="lazy">
+          <div class="info-foto"><span>Zona de Piscina</span><p></p>
+          </div>
+        </div>
+        <div class="tarjeta-foto" data-categoria="piscina">
+          <img src="assets/img/galeria/piscina-3.jpg" alt="Zona de Piscina - Ángulo 3" loading="lazy">
+          <div class="info-foto"><span>Zona de Piscina</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto" data-categoria="piscina">
+          <img src="assets/img/galeria/piscina-4.jpg" alt="Zona de Piscina - Ángulo 4" loading="lazy">
+          <div class="info-foto"><span>Zona de Piscina</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto" data-categoria="piscina">
+          <img src="assets/img/galeria/piscina-5.jpg" alt="Zona de Piscina - Ángulo 5" loading="lazy">
+          <div class="info-foto"><span>Zona de Piscina</span><p></p></div>
+        </div>
+
+        <!-- ÁREAS VERDES -->
+        <div class="tarjeta-foto oculto" data-categoria="verdes">
+          <img src="assets/img/galeria/verdes-1.jpg" alt="Áreas Verdes - Ángulo 1" loading="lazy">
+          <div class="info-foto"><span>Áreas Verdes</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="verdes">
+          <img src="assets/img/galeria/verdes-2.jpg" alt="Áreas Verdes - Ángulo 2" loading="lazy">
+          <div class="info-foto"><span>Áreas Verdes</span><p> </p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="verdes">
+          <img src="assets/img/galeria/verdes-3.jpg" alt="Áreas Verdes - Ángulo 3" loading="lazy">
+          <div class="info-foto"><span>Áreas Verdes</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="verdes">
+          <img src="assets/img/galeria/verdes-4.jpg" alt="Áreas Verdes - Ángulo 4" loading="lazy">
+          <div class="info-foto"><span>Áreas Verdes</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="verdes">
+          <img src="assets/img/galeria/verdes-5.jpg" alt="Áreas Verdes - Ángulo 5" loading="lazy">
+          <div class="info-foto"><span>Áreas Verdes</span><p></p></div>
+        </div>
+
+        <!-- ANIMALES -->
+        <div class="tarjeta-foto oculto" data-categoria="animales">
+          <img src="assets/img/galeria/animales-1.jpg" alt="Animales - Ángulo 1" loading="lazy">
+          <div class="info-foto"><span>Animales</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="animales">
+          <img src="assets/img/galeria/animales-2.jpg" alt="Animales - Ángulo 2" loading="lazy">
+          <div class="info-foto"><span>Animales</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="animales">
+          <img src="assets/img/galeria/animales-3.jpg" alt="Animales - Ángulo 3" loading="lazy">
+          <div class="info-foto"><span>Animales</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="animales">
+          <img src="assets/img/galeria/animales-4.jpg" alt="Animales - Ángulo 4" loading="lazy">
+          <div class="info-foto"><span>Animales</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="animales">
+          <img src="assets/img/galeria/animales-5.jpg" alt="Animales - Ángulo 5" loading="lazy">
+          <div class="info-foto"><span>Animales</span><p></p></div>
+        </div>
+
+        <!-- EXPLANADAS Y AUDITORIO -->
+        <div class="tarjeta-foto oculto" data-categoria="auditorio">
+          <img src="assets/img/galeria/auditorio-1.jpg" alt="Explanadas y Auditorio - Ángulo 1" loading="lazy">
+          <div class="info-foto"><span>Explanadas y Auditorio</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="auditorio">
+          <img src="assets/img/galeria/auditorio-2.jpg" alt="Explanadas y Auditorio - Ángulo 2" loading="lazy">
+          <div class="info-foto"><span>Explanadas y Auditorio</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="auditorio">
+          <img src="assets/img/galeria/auditorio-3.jpg" alt="Explanadas y Auditorio - Ángulo 3" loading="lazy">
+          <div class="info-foto"><span>Explanadas y Auditorio</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="auditorio">
+          <img src="assets/img/galeria/auditorio-4.jpg" alt="Explanadas y Auditorio - Ángulo 4" loading="lazy">
+          <div class="info-foto"><span>Explanadas y Auditorio</span><p></p></div>
+        </div>
+        <div class="tarjeta-foto oculto" data-categoria="auditorio">
+          <img src="assets/img/galeria/auditorio-5.jpg" alt="Explanadas y Auditorio - Ángulo 5" loading="lazy">
+          <div class="info-foto"><span>Explanadas y Auditorio</span><p></p></div>
+        </div>
+        <!-- SPOTS PARA FOTOS (PUENTE Y LOCACIONES) -->
+<div class="tarjeta-foto oculto" data-categoria="fotos">
+  <img src="assets/img/galeria/fotos-1.jpg" alt="Puente panorámico Killari" loading="lazy">
+  <div class="info-foto"><span>Spots para Fotos</span><p></p></div>
+</div>
+<div class="tarjeta-foto oculto" data-categoria="fotos">
+  <img src="assets/img/galeria/fotos-2.jpg" alt="Spot fotográfico 2 Killari" loading="lazy">
+  <div class="info-foto"><span>Spots para Fotos</span><p></p></div>
+</div>
+<div class="tarjeta-foto oculto" data-categoria="fotos">
+  <img src="assets/img/galeria/fotos-3.jpg" alt="Spot fotográfico 3 Killari" loading="lazy">
+  <div class="info-foto"><span>Spots para Fotos</span><p></p></div>
+</div>
+<div class="tarjeta-foto oculto" data-categoria="fotos">
+  <img src="assets/img/galeria/fotos-4.jpg" alt="Spot fotográfico 4 Killari" loading="lazy">
+  <div class="info-foto"><span>Spots para Fotos</span><p></p></div>
+</div>
       </div>
+    </div>
+
+    <!-- Visor en pantalla completa -->
+    <div class="visor-modal" id="visorModal">
+      <span class="cerrar-visor" id="cerrarVisor">&times;</span>
+      <img id="imagenAmpliada" src="" alt="Vista ampliada">
+      <p id="textoAmpliado"></p>
     </div>
   </section>
 
@@ -358,7 +1130,7 @@
       <div class="section-header light">
         <span class="subtitle">Celebra con nosotros</span>
         <h2>Alquiler de local para eventos sociales y corporativos</h2>
-        <p>Contamos con amplias áreas verdes, toldos, piscina y servicio de catering para hacer de tu fecha especial un éxito total.</p>
+        <p>Contamos con amplias áreas verdes, auditorio, piscina y servicio de catering para hacer de tu fecha especial un éxito total.</p>
       </div>
 
       <div class="events-grid">
@@ -384,8 +1156,6 @@
   <!-- RESERVAS (CONEXIÓN DIRECTA WHATSAPP) + UBICACIÓN -->
   <section class="section" id="reservar">
     <div class="container booking-grid">
-      
-      <!-- Formulario Inteligente -->
       <div class="booking-card">
         <span class="subtitle">Atención Rápida</span>
         <h2>Reserva tu visita o cotiza tu evento</h2>
@@ -430,11 +1200,10 @@
         </form>
       </div>
 
-      <!-- Mapa y Datos Reales -->
       <div class="location-card" id="ubicacion">
         <h3><i class="ri-map-pin-line"></i> ¿Cómo llegar a Killari?</h3>
         <p>Nos encontramos en <strong>Ctra. Panamericana N° 717, Pacanguilla 13860</strong> (La Libertad), con fácil acceso desde Chepén y Pacasmayo.</p>
-        
+
         <div class="info-items">
           <div><i class="ri-phone-fill"></i> <strong>Reservas y Consultas:</strong> 960 977 347</div>
           <div><i class="ri-time-fill"></i> <strong>Horario:</strong> Lunes a Domingo de 9:00 a.m. a 6:00 p.m.</div>
@@ -442,18 +1211,17 @@
         </div>
 
         <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps?q=Restaurante+Killari+Pacanguilla&output=embed" 
-            width="100%" 
-            height="260" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps?q=Restaurante+Killari+Pacanguilla&output=embed"
+            width="100%"
+            height="260"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -474,20 +1242,20 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Killari Pacanguilla. Todos los derechos reservados.</p>
+      <p>© 2026 Killari Restaurante Pacanguilla. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP REAL -->
-  <a href="https://wa.me/51960977347?text=Hola%20Killari%20Pacanguilla,%20quisiera%20más%20información" 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener" 
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/51960977347?text=Hola%20Killari%20Restaurante,%20quisiera%20más%20información"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener"
      aria-label="Contactar por WhatsApp">
     <i class="ri-whatsapp-line"></i>
   </a>
 
-  <!-- JAVASCRIPT AL FINAL DEL BODY PARA QUE SIEMPRE FUNCIONE -->
+  <!-- SCRIPTS INTERACTIVOS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // 1. Menú móvil
@@ -510,25 +1278,61 @@
           btn.classList.add("active");
 
           const category = btn.getAttribute("data-category");
-
           menuCards.forEach(card => {
             const cardCat = card.getAttribute("data-cat");
-            if (category === "todos" || cardCat === category) {
-              card.classList.remove("hidden");
-            } else {
-              card.classList.add("hidden");
-            }
+            card.classList.toggle("hidden", !(category === "todos" || cardCat === category));
           });
         });
       });
 
-      // 3. Fecha mínima de hoy
+      // 3. Filtro de Galería por Zonas
+      const botonesZona = document.querySelectorAll(".btn-zona");
+      const tarjetasFoto = document.querySelectorAll(".tarjeta-foto");
+
+      botonesZona.forEach(boton => {
+        boton.addEventListener("click", () => {
+          botonesZona.forEach(b => b.classList.remove("activo"));
+          boton.classList.add("activo");
+
+          const categoria = boton.getAttribute("data-categoria");
+          tarjetasFoto.forEach(tarjeta => {
+            tarjeta.classList.toggle("oculto", tarjeta.getAttribute("data-categoria") !== categoria);
+          });
+        });
+      });
+
+      // 4. Visor de fotos en pantalla completa (Lightbox)
+      const visorModal = document.getElementById("visorModal");
+      const imagenAmpliada = document.getElementById("imagenAmpliada");
+      const textoAmpliado = document.getElementById("textoAmpliado");
+      const cerrarVisor = document.getElementById("cerrarVisor");
+
+      tarjetasFoto.forEach(tarjeta => {
+        tarjeta.addEventListener("click", () => {
+          const img = tarjeta.querySelector("img");
+          const desc = tarjeta.querySelector("p").textContent;
+          imagenAmpliada.src = img.src;
+          textoAmpliado.textContent = desc;
+          visorModal.classList.add("abierto");
+        });
+      });
+
+      if (cerrarVisor) {
+        cerrarVisor.addEventListener("click", () => visorModal.classList.remove("abierto"));
+      }
+      if (visorModal) {
+        visorModal.addEventListener("click", (e) => {
+          if (e.target === visorModal) visorModal.classList.remove("abierto");
+        });
+      }
+
+      // 5. Fecha mínima de hoy en reservas
       const fechaInput = document.getElementById("fecha");
       if (fechaInput) {
         fechaInput.setAttribute("min", new Date().toISOString().split("T")[0]);
       }
 
-      // 4. Envío directo a WhatsApp
+      // 6. Envío directo a WhatsApp
       const whatsappForm = document.getElementById("whatsappForm");
       if (whatsappForm) {
         whatsappForm.addEventListener("submit", (e) => {
@@ -539,7 +1343,7 @@
           const personas = document.getElementById("personas").value;
           const notas = document.getElementById("notas").value.trim();
 
-          let mensaje = `Hola *Killari Pacanguilla*, mi nombre es *${nombre}*. Quisiera consultar disponibilidad para:\n\n`;
+          let mensaje = `Hola *Killari Restaurante*, mi nombre es *${nombre}*. Quisiera consultar disponibilidad para:\n\n`;
           mensaje += `• *Motivo:* ${servicio}\n`;
           mensaje += `• *Fecha:* ${fecha}\n`;
           mensaje += `• *Cantidad:* ${personas} persona(s)\n`;
